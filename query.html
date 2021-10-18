@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<body>
+{% if submitted %}
+Form Submitted
+{% else %}
+<form action="" method=POST>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-primary" />
+</form>
+{% endif %}
+
+<ul class="list-group">
+    {% for i in entries %}
+    <li class="list-group-item">{{i.name}}  Comment: {{i.comment}}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
+
+
